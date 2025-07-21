@@ -99,9 +99,9 @@ I trust you agree?
 ♻️ Repost if you found this useful 
 🔥 Follow me for more boastwriting tips 
 
-hashtag#LowQualityContent 
-hashtag#DigitalGonad 
-hashtag#Boastwriter`,
+#LowQualityContent 
+#DigitalGonad 
+#Boastwriter`,
     inputs: [
       { id: 'image', label: 'Select an Image' },
       { id: 'verb', label: 'Past Tense Verb (e.g., rejected)' },
@@ -318,7 +318,9 @@ hashtag#Boastwriter`,
               </div>
             )}
             <div className="madlib-result">
-              <pre>{generateMadlib()}</pre>
+              {generateMadlib().split('\n').map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
             </div>
             <div className="result-actions">
               <button onClick={resetGame} className="reset-btn">
