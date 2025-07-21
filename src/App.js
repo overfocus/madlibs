@@ -841,6 +841,9 @@ const App = () => {
 
       <footer>
         <p>© {new Date().getFullYear()} AI Hype Madlibs - Exposing LinkedIn AI Influencer Culture One Post at a Time</p>
+        <p>Created by overfocus - <a href="https://github.com/overfocus/madlibs">source code @ github.com/overfocus/madlibs</a></p>
+        <p>Hosted by Vercel - <a href="https://vercel.com">vercel.com</a></p>
+        <p>Visit <a href="https://kevinferron.com">kevinferron.com</a></p>
       </footer>
     </div>
   );
