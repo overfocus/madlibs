@@ -1,5 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+
+// Word suggestion lists for different types of prompts
+const suggestions = {
+  noun: [
+    'productivity', 'efficiency', 'workflow', 'ROI', 'synergy', 'disruption', 'innovation', 'transformation', 
+    'paradigm', 'algorithm', 'pipeline', 'ecosystem', 'framework', 'solution', 'platform', 'interface',
+    'neural network', 'machine learning', 'data', 'analytics', 'insights', 'KPIs', 'metrics', 'benchmark',
+    'scalability', 'optimization', 'throughput', 'bandwidth', 'latency', 'bottleneck', 'overhead', 'cloud'
+  ],
+  adjective: [
+    'groundbreaking', 'revolutionary', 'disruptive', 'innovative', 'cutting-edge', 'state-of-the-art', 
+    'next-generation', 'game-changing', 'transformative', 'paradigm-shifting', 'bleeding-edge', 'future-proof',
+    'seamless', 'frictionless', 'intuitive', 'robust', 'scalable', 'enterprise-grade', 'mission-critical',
+    'hyper-efficient', 'ultra-optimized', 'quantum-level', 'unprecedented', 'unparalleled', 'extraordinary'
+  ],
+  verb: [
+    'revolutionized', 'disrupted', 'transformed', 'optimized', 'streamlined', 'accelerated', 'amplified', 
+    'leveraged', 'engineered', 'architected', 'pioneered', 'spearheaded', 'orchestrated', 'implemented',
+    'deployed', 'scaled', 'iterated', 'innovated', 'enhanced', 'elevated', 'maximized', 'unlocked',
+    'unleashed', 'catalyzed', 'empowered', 'enabled', 'expedited', 'facilitated', 'generated', 'harnessed'
+  ],
+  number: [
+    '10', '42', '100', '250', '500', '1000', '10000', '1000000', '1000000000', '99.9', '150', '200', '300',
+    '3', '5', '7', '12', '15', '20', '25', '30', '50', '75', '90', '99', '110', '125', '200', '400', '750'
+  ]
+};
 
 const App = () => {
   // State to track the current step in the madlib process
@@ -10,6 +36,8 @@ const App = () => {
   const [currentInput, setCurrentInput] = useState('');
   // State to track if the madlib is complete
   const [isComplete, setIsComplete] = useState(false);
+  // State to track current suggestions
+  const [currentSuggestions, setCurrentSuggestions] = useState([]);
 
   // Collection of AI hype templates
   const templates = [
@@ -653,30 +681,62 @@ const App = () => {
     return templates[randomIndex];
   });
 
+  // Generate random suggestions based on the current input type
+  const generateSuggestions = (step, count = 3) => {
+    if (!selectedTemplate.inputs[step]) return [];
+    
+    // Determine which suggestion list to use based on the label
+    let suggestionType = 'noun'; // default
+    const currentLabel = selectedTemplate.inputs[step].label.toLowerCase();
+    
+    if (currentLabel.includes('adjective')) {
+      suggestionType = 'adjective';
+    } else if (currentLabel.includes('verb')) {
+      suggestionType = 'verb';
+    } else if (currentLabel.includes('number')) {
+      suggestionType = 'number';
+    } else if (currentLabel.includes('noun')) {
+      suggestionType = 'noun';
+    }
+    
+    // Get the appropriate suggestion list
+    const suggestionList = suggestions[suggestionType] || suggestions.noun;
+    
+    // Shuffle and take the first 'count' items
+    return [...suggestionList]
+      .sort(() => 0.5 - Math.random())
+      .slice(0, count);
+  };
+
   // Handle input change
   const handleInputChange = (e) => {
     setCurrentInput(e.target.value);
   };
+  
+  // Handle suggestion click
+  const handleSuggestionClick = (suggestion) => {
+    setCurrentInput(suggestion);
+  };
+  
+  // Update suggestions when current step changes
+  useEffect(() => {
+    if (!isComplete) {
+      setCurrentSuggestions(generateSuggestions(currentStep));
+    }
+  }, [currentStep, isComplete]);
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Get the current input field
     const currentInputField = selectedTemplate.inputs[currentStep];
-    
-    // Update userInputs with the current input
     setUserInputs({
       ...userInputs,
       [currentInputField.id]: currentInput
     });
-    
-    // Clear the current input
     setCurrentInput('');
-    
-    // Move to the next step or complete the madlib
     if (currentStep < selectedTemplate.inputs.length - 1) {
       setCurrentStep(currentStep + 1);
+      // New suggestions will be generated via useEffect when currentStep changes
     } else {
       setIsComplete(true);
     }
@@ -725,6 +785,21 @@ const App = () => {
                   autoFocus
                   required
                 />
+                <div className="suggestions">
+                  <p>Suggestions:</p>
+                  <div className="suggestion-buttons">
+                    {currentSuggestions.map((suggestion, index) => (
+                      <button 
+                        key={index} 
+                        type="button" 
+                        className="suggestion-btn"
+                        onClick={() => handleSuggestionClick(suggestion)}
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
               <button type="submit" className="submit-btn">
                 {currentStep === selectedTemplate.inputs.length - 1 ? 'Complete' : 'Next'}
