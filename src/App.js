@@ -38,6 +38,8 @@ const App = () => {
   const [isComplete, setIsComplete] = useState(false);
   // State to track current suggestions
   const [currentSuggestions, setCurrentSuggestions] = useState([]);
+  // State to track copy to clipboard success
+  const [copySuccess, setCopySuccess] = useState(false);
 
   // Collection of AI hype templates
   const templates = [
@@ -675,7 +677,7 @@ const App = () => {
     }
   ];
 
-  // Randomly select a template when the component loads
+  // Randomly select a template when the component mounts
   const [selectedTemplate] = useState(() => {
     const randomIndex = Math.floor(Math.random() * templates.length);
     return templates[randomIndex];
@@ -723,7 +725,7 @@ const App = () => {
     if (!isComplete) {
       setCurrentSuggestions(generateSuggestions(currentStep));
     }
-  }, [currentStep, isComplete]);
+  }, [currentStep, isComplete, selectedTemplate]);
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -748,22 +750,35 @@ const App = () => {
     setUserInputs({});
     setCurrentInput('');
     setIsComplete(false);
+    setCopySuccess(false);
     // Refresh the page to get a new random template
     window.location.reload();
   };
-
+  
   // Function to replace placeholders with user inputs
   const generateMadlib = () => {
     let result = selectedTemplate.text;
-    
-    // Replace each placeholder with its corresponding user input
     Object.keys(userInputs).forEach(key => {
       result = result.replace(`{${key}}`, userInputs[key]);
     });
-    
     return result;
   };
-
+  
+  // Function to copy generated madlib to clipboard
+  const copyToClipboard = () => {
+    const text = generateMadlib();
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        setCopySuccess(true);
+        // Reset the success message after 2 seconds
+        setTimeout(() => {
+          setCopySuccess(false);
+        }, 2000);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+  };
   return (
     <div className="app-container">
       <header>
@@ -812,9 +827,14 @@ const App = () => {
             <div className="madlib-result">
               {generateMadlib()}
             </div>
-            <button onClick={resetGame} className="reset-btn">
-              Create Another Post
-            </button>
+            <div className="result-actions">
+              <button onClick={resetGame} className="reset-btn">
+                Create Another Post
+              </button>
+              <button onClick={copyToClipboard} className="copy-btn">
+                {copySuccess ? 'Copied!' : 'Copy to Clipboard'}
+              </button>
+            </div>
           </div>
         )}
       </div>

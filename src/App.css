@@ -93,19 +93,35 @@ input[type="text"]:focus {
   color: white;
 }
 
-.submit-btn, .reset-btn {
+.submit-btn, .reset-btn, .copy-btn {
   background-color: #0077b6;
   color: white;
   border: none;
-  padding: 12px 24px;
   border-radius: 5px;
+  padding: 12px 24px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 20px;
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover, .reset-btn:hover {
-  background-color: #005b8a;
+.submit-btn:hover, .reset-btn:hover, .copy-btn:hover {
+  background-color: #023e8a;
+}
+
+.copy-btn {
+  background-color: #4caf50;
+}
+
+.copy-btn:hover {
+  background-color: #388e3c;
+}
+
+.result-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .madlib-result {
