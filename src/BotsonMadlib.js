@@ -489,6 +489,44 @@ I trust you agree?
         suggestionType = 'lesson';
       } else if (currentLabel.includes('people')) {
         suggestionType = 'people';
+      } else if (currentLabel.includes('technology')) {
+        suggestionType = 'technology';
+      } else if (currentLabel.includes('thing')) {
+        suggestionType = 'thing';
+      } else if (currentLabel.includes('trait')) {
+        suggestionType = 'trait';
+      } else if (currentLabel.includes('emotion')) {
+        suggestionType = 'emotion';
+      } else if (currentLabel.includes('conflict')) {
+        suggestionType = 'conflict';
+      } else if (currentLabel.includes('response')) {
+        suggestionType = 'response';
+      } else if (currentLabel.includes('feeling')) {
+        suggestionType = 'feeling';
+      } else if (currentLabel.includes('event')) {
+        suggestionType = 'event';
+      } else if (currentLabel.includes('activity')) {
+        suggestionType = 'activity';
+      } else if (currentLabel.includes('person')) {
+        suggestionType = 'person';
+      } else if (currentLabel.includes('achievement')) {
+        suggestionType = 'achievement';
+      } else if (currentLabel.includes('approach')) {
+        suggestionType = 'approach';
+      } else if (currentLabel.includes('industry')) {
+        suggestionType = 'industry';
+      } else if (currentLabel.includes('innovation')) {
+        suggestionType = 'innovation';
+      } else if (currentLabel.includes('result')) {
+        suggestionType = 'result';
+      } else if (currentLabel.includes('opportunity')) {
+        suggestionType = 'opportunity';
+      } else if (currentLabel.includes('value')) {
+        suggestionType = 'value';
+      } else if (currentLabel.includes('motto')) {
+        suggestionType = 'motto';
+      } else if (currentLabel.includes('reaction')) {
+        suggestionType = 'reaction';
       }
       
       const suggestionList = suggestions[suggestionType] || suggestions.noun;
@@ -527,7 +565,7 @@ I trust you agree?
     if (!isComplete) {
       setCurrentSuggestions(getSuggestionsForStep(currentStep));
     }
-  }, [currentStep, isComplete, allSuggestions]);
+  }, [currentStep, isComplete, allSuggestions, getSuggestionsForStep]);
 
   // Handle form submission
   const handleSubmit = (e) => {
