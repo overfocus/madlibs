@@ -17,12 +17,26 @@ h1 {
   margin-bottom: 10px;
 }
 
+.home-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0077b6;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.home-link:hover {
+  color: #023e8a;
+  text-decoration: underline;
+}
+
 .subtitle {
   color: #555;
   font-size: 1.1rem;
 }
 
-.content {
+.madlib-container {
   background-color: white;
   border-radius: 10px;
   padding: 30px;
@@ -30,8 +44,31 @@ h1 {
   min-height: 300px;
 }
 
+.input-section, .result-section {
+  text-align: center;
+}
+
 .input-section h2, .result-section h2 {
   color: #0077b6;
+  margin-bottom: 20px;
+}
+
+.input-section {
+  text-align: center;
+}
+
+.input-section .input-label {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.input-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
@@ -77,7 +114,7 @@ input[type="text"]:focus {
   gap: 8px;
 }
 
-.suggestion-btn {
+.suggestion-button {
   background-color: #e1f5fe;
   color: #0077b6;
   border: 1px solid #0077b6;
@@ -86,14 +123,15 @@ input[type="text"]:focus {
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s;
+  margin: 4px;
 }
 
-.suggestion-btn:hover {
+.suggestion-button:hover {
   background-color: #0077b6;
   color: white;
 }
 
-.submit-btn, .reset-btn, .copy-btn {
+button {
   background-color: #0077b6;
   color: white;
   border: none;
@@ -105,23 +143,31 @@ input[type="text"]:focus {
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover, .reset-btn:hover, .copy-btn:hover {
+button:hover {
   background-color: #023e8a;
 }
 
-.copy-btn {
+.copy-button {
   background-color: #4caf50;
 }
 
-.copy-btn:hover {
+.copy-button:hover {
   background-color: #388e3c;
 }
 
-.result-actions {
+.reset-button {
+  background-color: #ff9800;
+}
+
+.reset-button:hover {
+  background-color: #f57c00;
+}
+
+.action-buttons {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .madlib-result {
