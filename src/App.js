@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 
 // Word suggestion lists for different types of prompts
@@ -38,6 +39,31 @@ const App = () => {
   const [isComplete, setIsComplete] = useState(false);
   // State to track current suggestions
   const [currentSuggestions, setCurrentSuggestions] = useState([]);
+  
+  // Generate and store all suggestions for each step at initialization
+  const [allSuggestions, setAllSuggestions] = useState(() => {
+    const suggestionsByStep = {};
+    selectedTemplate.inputs.forEach((input, index) => {
+      let suggestionType = 'noun';
+      const currentLabel = input.label.toLowerCase();
+      
+      if (currentLabel.includes('adjective')) {
+        suggestionType = 'adjective';
+      } else if (currentLabel.includes('verb')) {
+        suggestionType = 'verb';
+      } else if (currentLabel.includes('number')) {
+        suggestionType = 'number';
+      } else if (currentLabel.includes('noun')) {
+        suggestionType = 'noun';
+      }
+      
+      const suggestionList = suggestions[suggestionType] || suggestions.noun;
+      suggestionsByStep[index] = [...suggestionList]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+    });
+    return suggestionsByStep;
+  });
   // State to track copy to clipboard success
   const [copySuccess, setCopySuccess] = useState(false);
 
@@ -683,31 +709,9 @@ const App = () => {
     return templates[randomIndex];
   });
 
-  // Generate random suggestions based on the current input type
-  const generateSuggestions = (step, count = 3) => {
-    if (!selectedTemplate.inputs[step]) return [];
-    
-    // Determine which suggestion list to use based on the label
-    let suggestionType = 'noun'; // default
-    const currentLabel = selectedTemplate.inputs[step].label.toLowerCase();
-    
-    if (currentLabel.includes('adjective')) {
-      suggestionType = 'adjective';
-    } else if (currentLabel.includes('verb')) {
-      suggestionType = 'verb';
-    } else if (currentLabel.includes('number')) {
-      suggestionType = 'number';
-    } else if (currentLabel.includes('noun')) {
-      suggestionType = 'noun';
-    }
-    
-    // Get the appropriate suggestion list
-    const suggestionList = suggestions[suggestionType] || suggestions.noun;
-    
-    // Shuffle and take the first 'count' items
-    return [...suggestionList]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, count);
+  // Get suggestions for a specific step
+  const getSuggestionsForStep = (step) => {
+    return allSuggestions[step] || [];
   };
 
   // Handle input change
@@ -723,9 +727,9 @@ const App = () => {
   // Update suggestions when current step changes
   useEffect(() => {
     if (!isComplete) {
-      setCurrentSuggestions(generateSuggestions(currentStep));
+      setCurrentSuggestions(getSuggestionsForStep(currentStep));
     }
-  }, [currentStep, isComplete, selectedTemplate]);
+  }, [currentStep, isComplete, allSuggestions]);
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -754,6 +758,8 @@ const App = () => {
     // Refresh the page to get a new random template
     window.location.reload();
   };
+  
+  // Navigation is handled by React Router Link component
   
   // Function to replace placeholders with user inputs
   const generateMadlib = () => {
@@ -784,6 +790,9 @@ const App = () => {
       <header>
         <h1>AI Hype Madlibs</h1>
         <p className="subtitle">Become a 500000000x LinkedIn influencer in 1/1000000000th of the time!</p>
+        <div className="nav-links">
+          <Link to="/" className="home-link">← Back to Home</Link>
+        </div>
       </header>
 
       <div className="content">
