@@ -106,7 +106,7 @@ const App = () => {
     <div className="app-container">
       <header>
         <h1>AI Hype Madlibs</h1>
-        <p className="subtitle">Generate hilarious AI hype posts that sound like LinkedIn influencers!</p>
+        <p className="subtitle">Become a 500000000x LinkedIn influencer in 1/1000000000th of the time!</p>
       </header>
 
       <div className="content">
