@@ -113,6 +113,61 @@ const suggestions = {
     'Made him beg', 'Doubled the salary requirement', 'Reminded him of his mistake', 'Made him start from scratch',
     'Forwarded his email to the whole team', 'Posted screenshots on LinkedIn', 'Sent a passive-aggressive reply',
     'Left him on read', 'Told him the position was filled', 'Made him interview again', 'Tripled the workload', 'Added weekend shifts'
+  ],
+  event: [
+    'Industry conference', 'Networking mixer', 'Leadership summit', 'Tech meetup', 'Executive dinner',
+    'Charity gala', 'Award ceremony', 'Product launch', 'Investor pitch night', 'Thought leadership panel',
+    'Innovation showcase', 'Entrepreneurship forum', 'Business breakfast', 'Corporate retreat', 'VIP reception'
+  ],
+  activity: [
+    'drinking free champagne', 'collecting swag', 'taking selfies', 'eating canapés', 'making small talk',
+    'exchanging business cards', 'checking their phones', 'laughing at bad jokes', 'hovering near the buffet', 'avoiding eye contact',
+    'posting on social media', 'complaining about the venue', 'talking about the weather', 'discussing sports', 'gossiping about colleagues'
+  ],
+  person: [
+    'CEO of a Fortune 500', 'most influential person', 'keynote speaker', 'industry pioneer', 'venture capitalist',
+    'angel investor', 'tech billionaire', 'thought leader', 'company founder', 'serial entrepreneur',
+    'bestselling author', 'celebrity entrepreneur', 'social media influencer', 'industry disruptor', 'market maker'
+  ],
+  achievement: [
+    'increased revenue by 500%', 'built a 7-figure business', 'exited 3 startups', 'disrupted an entire industry', 'invented a new business model',
+    'scaled to 10 countries in 6 months', 'grew my LinkedIn following to 500K', 'secured $10M in funding', 'built a team of 100+ A-players', 'achieved 300% YOY growth',
+    'turned around a failing business', 'created a viral marketing campaign', 'developed a revolutionary algorithm', 'published a bestselling business book', 'launched a successful podcast'
+  ],
+  approach: [
+    'disruptive mindset', 'growth hacking strategy', 'blue ocean thinking', 'first-principles approach', 'agile methodology',
+    'lean startup philosophy', 'design thinking framework', 'data-driven decision making', 'customer-centric model', 'radical innovation',
+    'exponential growth strategy', 'platform ecosystem', 'network effect leverage', 'digital transformation roadmap', 'value chain optimization'
+  ],
+  industry: [
+    'blockchain', 'artificial intelligence', 'SaaS', 'fintech', 'e-commerce',
+    'digital marketing', 'healthtech', 'edtech', 'clean energy', 'cybersecurity',
+    'IoT', 'cloud computing', 'big data', 'virtual reality', 'quantum computing'
+  ],
+  innovation: [
+    'AI-powered toothbrush', 'blockchain for pets', 'NFT marketplace for dreams', 'metaverse dating app', 'crypto-mining shower head',
+    'machine learning coffee maker', 'AR business card', 'drone delivery for office snacks', 'smart contract toilet', 'digital twin of myself',
+    'wearable productivity tracker', 'mindfulness algorithm', 'virtual networking platform', 'blockchain-based resume', 'AI career coach'
+  ],
+  result: [
+    'Offered me a job', 'Invested in my startup', 'Introduced me to their network', 'Asked me to speak at their event', 'Requested a follow-up meeting',
+    'Became my mentor', 'Endorsed me on LinkedIn', 'Shared my content with their followers', 'Invited me to their mastermind group', 'Proposed a partnership',
+    'Asked for my advice', 'Recommended me to their board', 'Featured me in their newsletter', 'Invited me to their podcast', 'Offered me a book deal'
+  ],
+  opportunity: [
+    'partnership deal', 'exclusive contract', 'speaking engagement', 'book deal', 'consulting gig',
+    'advisory position', 'investment opportunity', 'joint venture', 'licensing agreement', 'distribution deal',
+    'media appearance', 'brand ambassadorship', 'strategic alliance', 'franchise opportunity', 'global expansion'
+  ],
+  value: [
+    '$10 million', '$5 million', '$1 million', '$500K', '$250K',
+    '$100K', '$50K', '7 figures', '6 figures', '8 figures',
+    'priceless exposure', 'immeasurable value', 'industry-changing potential', 'market-disrupting impact', 'legacy-defining significance'
+  ],
+  motto: [
+    'Network or Not Worth', 'Connect or Collect Dust', 'Disrupt or Be Disrupted', 'Innovate or Evaporate', 'Scale or Fail',
+    'Hustle or Be Hustled', 'Lead or Be Led', 'Pivot or Perish', 'Adapt or Die', 'Grow or Go Home',
+    'Execute or Exit', 'Monetize or Minimize', 'Optimize or Obsolete', 'Leverage or Leave', 'Automate or Evaporate'
   ]
 };
 
@@ -322,6 +377,73 @@ What's the agree/disagree ratio on this one?
         { id: 'response3', label: 'Petty Response 3 (e.g., Told him he should have made better decisions)' },
         { id: 'lesson', label: 'Business Lesson (e.g., Don\'t burn your bridges)' }
       ]
+    },
+    {
+      text: `I attended a {event} last night.
+
+While others were busy {activity}, I was focused on what really matters.
+
+Networking.
+
+I approached the {person} in the room and introduced myself.
+
+→ "I'm {name}, and I {achievement}" ✔️
+
+Their reaction?
+
+At first:
+
+→ {reaction1}
+→ {reaction2}
+→ {reaction3}
+
+But after I explained my {approach} to {industry} and my vision for {innovation}, everything changed.
+
+They immediately:
+
+→ {result1}
+→ {result2}
+→ {result3}
+
+The lesson?
+
+→ {lesson} ✔️
+
+While everyone else was wasting time on small talk, I secured a {opportunity} worth {value}.
+
+This is why I always say: {motto}
+
+I trust you agree?
+
+---------------
+
+♻️ Repost if you found this useful 
+🔥 Follow me for more boastwriting tips 
+
+#LowQualityContent 
+#DigitalGonad 
+#Boastwriter`,
+      inputs: [
+        { id: 'image', label: 'Select an Image' },
+        { id: 'event', label: 'Networking Event (e.g., Industry conference)' },
+        { id: 'activity', label: 'Wasteful Activity (e.g., drinking free champagne)' },
+        { id: 'person', label: 'Important Person (e.g., CEO of a Fortune 500)' },
+        { id: 'name', label: 'Your Name (e.g., John Smith)' },
+        { id: 'achievement', label: 'Achievement (e.g., increased revenue by 500%)' },
+        { id: 'reaction1', label: 'Negative Reaction 1 (e.g., Looked confused)' },
+        { id: 'reaction2', label: 'Negative Reaction 2 (e.g., Tried to escape)' },
+        { id: 'reaction3', label: 'Negative Reaction 3 (e.g., Called security)' },
+        { id: 'approach', label: 'Business Approach (e.g., disruptive mindset)' },
+        { id: 'industry', label: 'Industry (e.g., blockchain)' },
+        { id: 'innovation', label: 'Innovation (e.g., AI-powered toothbrush)' },
+        { id: 'result1', label: 'Positive Result 1 (e.g., Offered me a job)' },
+        { id: 'result2', label: 'Positive Result 2 (e.g., Invested in my startup)' },
+        { id: 'result3', label: 'Positive Result 3 (e.g., Introduced me to their network)' },
+        { id: 'lesson', label: 'Business Lesson (e.g., Fortune favors the bold)' },
+        { id: 'opportunity', label: 'Opportunity (e.g., partnership deal)' },
+        { id: 'value', label: 'Monetary Value (e.g., $10 million)' },
+        { id: 'motto', label: 'Personal Motto (e.g., Network or Not Worth)' }
+      ]
     }
   ];
   
@@ -475,6 +597,28 @@ What's the agree/disagree ratio on this one?
         suggestionType = 'response';
       } else if (currentLabel.includes('feeling')) {
         suggestionType = 'feeling';
+      } else if (currentLabel.includes('event')) {
+        suggestionType = 'event';
+      } else if (currentLabel.includes('activity')) {
+        suggestionType = 'activity';
+      } else if (currentLabel.includes('person')) {
+        suggestionType = 'person';
+      } else if (currentLabel.includes('achievement')) {
+        suggestionType = 'achievement';
+      } else if (currentLabel.includes('approach')) {
+        suggestionType = 'approach';
+      } else if (currentLabel.includes('industry')) {
+        suggestionType = 'industry';
+      } else if (currentLabel.includes('innovation')) {
+        suggestionType = 'innovation';
+      } else if (currentLabel.includes('result')) {
+        suggestionType = 'result';
+      } else if (currentLabel.includes('opportunity')) {
+        suggestionType = 'opportunity';
+      } else if (currentLabel.includes('value')) {
+        suggestionType = 'value';
+      } else if (currentLabel.includes('motto')) {
+        suggestionType = 'motto';
       }
       
       const suggestionList = suggestions[suggestionType] || suggestions.noun;
