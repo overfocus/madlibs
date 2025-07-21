@@ -42,6 +42,608 @@ const App = () => {
         { id: 'noun2', label: 'Another Noun' },
         { id: 'adjective2', label: 'Another Adjective' }
       ]
+    },
+    {
+      text: "Breaking: Our {adjective} AI just {verb} all previous benchmarks by {number}x! This is a {adjective2} breakthrough for {noun} as we know it.",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' },
+        { id: 'noun', label: 'Noun' }
+      ]
+    },
+    {
+      text: "I'm {adjective} to share that our AI has achieved {number}% accuracy in {noun} prediction, making {noun2} obsolete in just {number2} months!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective (e.g., excited, proud)' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "The future is here! Our {adjective} AI can now {verb} your {noun} in just {number} seconds, saving you {number2} hours of {noun2} every month.",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "After {number} years of research, we've created an AI that {verb} {number2}x faster than humans, making {noun} more {adjective} than ever before!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Proud to announce our AI has {verb} the impossible! It now {verb2} {noun} with {number}% more {noun2} while using {number2}% less {noun3}.",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'verb2', label: 'Present Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Our {adjective} AI doesn't just {verb} {noun} — it {verb2} the entire {noun2} paradigm by {number}x! This is truly a {adjective2} moment for our industry.",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'verb2', label: 'Another Verb' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Just witnessed our AI {verb} a {adjective} {noun} in only {number} milliseconds! The {noun2} industry will never be the same again.",
+      inputs: [
+        { id: 'verb', label: 'Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun (industry type)' }
+      ]
+    },
+    {
+      text: "Humbled to share that our {adjective} AI solution has been {verb} by {number} {noun} leaders, resulting in {number2}x more {noun2} for their businesses!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Participle Verb (e.g., adopted)' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun (industry type)' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Excited to unveil our {adjective} AI that {verb} {noun} at {number}x the speed of traditional methods. Say goodbye to {noun2} forever!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Our team has created an AI that {verb} {noun} with {number}% more {noun2} than any competitor. The {adjective} results speak for themselves!",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Mind-blown! Our AI just {verb} a new record for {noun} by achieving {number}x more {noun2} than ever thought possible!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Today marks a {adjective} milestone: our AI has {verb} the {noun} barrier, delivering {number}x more {noun2} than the industry standard!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Grateful to announce our {adjective} AI now {verb} {noun} with {number}% accuracy while reducing {noun2} by {number2}%! #AIRevolution",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "After {number} sleepless nights, our team has built an AI that {verb} {noun} at {number2}x the speed while being {number3}% more {adjective}!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'number3', label: 'One More Number' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Honored to reveal our AI has {verb} the {adjective} barrier of {noun}, achieving what {number} experts said was impossible just {number2} months ago!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Game-changer alert! Our {adjective} AI has {verb} the way we think about {noun}, increasing {noun2} by an unprecedented {number}%!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number', label: 'Number' }
+      ]
+    },
+    {
+      text: "Thrilled to announce that our AI now {verb} {noun} with {number}% more {noun2} while simultaneously {verb2} {number2}x more {noun3}!",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'verb2', label: 'Another Verb (present tense)' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Just in: Our {adjective} AI has {verb} all expectations by {verb2} {number}x more {noun} than the top {number2} competitors combined!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'verb2', label: 'Present Participle Verb (-ing)' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Proud moment! Our AI has achieved a {number}x improvement in {noun} efficiency, making it the most {adjective} solution for {noun2} in the industry!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Revolutionary breakthrough! Our AI {verb} {noun} in just {number} seconds, making it {number2}x more {adjective} than traditional {noun2} methods!",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Incredible news! Our AI has {verb} the {adjective} world of {noun}, delivering {number}% more {noun2} with {number2}% less effort!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Feeling blessed! Our AI has reached a {adjective} milestone by {verb} {noun} at {number}x the normal rate! This changes everything about {noun2}.",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Present Participle Verb (-ing)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Breakthrough moment! Our {adjective} AI has {verb} the {noun} industry by achieving a mind-blowing {number}% reduction in {noun2}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Humbled by the response to our new AI that {verb} {noun} with {number}x more {noun2}! Over {number2} industry leaders have already {verb2} it!",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'verb2', label: 'Past Tense Verb' }
+      ]
+    },
+    {
+      text: "Excited to share that our AI has {verb} a new {adjective} approach to {noun}, making traditional methods look {number}x less {adjective2}!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Just witnessed our AI {verb} {number} different {noun} tasks in parallel, each one {number2}% more {adjective} than a human expert!",
+      inputs: [
+        { id: 'verb', label: 'Verb (infinitive)' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Our {adjective} AI has officially {verb} the {noun} ceiling! It now processes {number}x more {noun2} while consuming {number2}% less resources.",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Proud to unveil our AI that {verb} {noun} with {number}% more {noun2} than ever before! This is truly a {adjective} moment for our industry.",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "After {number} months of development, our AI now {verb} {noun} at {number2}x the speed with {number3}% more {adjective} results!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'number3', label: 'One More Number' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Thrilled to announce our AI has {verb} a new {adjective} record in {noun} by achieving {number}x better {noun2} than the previous state-of-the-art!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Groundbreaking! Our AI has {verb} the {adjective} limits of {noun}, delivering {number}x more {noun2} while using {number2}% less {noun3}!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Just shipped our {adjective} AI that {verb} {noun} with unprecedented {noun2}! Early users report {number}x improvement in their {noun3}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Honored to share that our AI has {verb} a new {adjective} benchmark in {noun}, outperforming traditional methods by {number}x while using {number2}% less {noun2}!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Game-changing moment! Our {adjective} AI has {verb} the way we approach {noun}, delivering {number}x more {noun2} in just {number2}% of the time!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Thrilled to announce our AI has {verb} the {adjective} barrier in {noun} technology! It's now {number}x more {adjective2} than anything else on the market.",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Humbled by the {adjective} response to our AI that {verb} {noun} with {number}% more {noun2}! We've already {verb2} over {number2} {noun3} use cases!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'verb2', label: 'Past Tense Verb' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Our {adjective} AI has {verb} all expectations by {verb2} {noun} at {number}x the speed while maintaining {number2}% more {noun2}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'verb2', label: 'Present Participle Verb (-ing)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Proud to reveal our AI now {verb} {noun} with {number}% more {noun2} than the top {number2} competitors combined! This is truly {adjective}.",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "After {number} iterations, our AI has finally {verb} the {adjective} frontier of {noun}! It's now {number2}x more {adjective2} than we ever imagined possible!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Breaking news! Our {adjective} AI has {verb} a new {noun} record by achieving {number}% more {noun2} while using {number2}% less {noun3}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "Excited to announce our AI has {verb} the {adjective} challenge of {noun} by delivering {number}x more {noun2} than previously thought possible!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Just in: Our {adjective} AI has {verb} all previous {noun} records! It now {verb2} {number}x faster while being {number2}% more {adjective2}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'verb2', label: 'Verb (present tense)' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Humbled to announce our AI has {verb} a new {adjective} approach to {noun}, making it {number}x more {adjective2} for {number2}+ use cases!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Excited to share that our AI has {verb} a {number}x improvement in {noun} by leveraging {adjective} {noun2} technology! The future is here!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Our {adjective} AI has {verb} the impossible! It now {verb2} {noun} with {number}% more {noun2} while using {number2}% less {noun3}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'verb2', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun3', label: 'One More Noun' }
+      ]
+    },
+    {
+      text: "After {number} years in stealth mode, we're unveiling our AI that {verb} {noun} at {number2}x the speed with {number3}% more {adjective} results!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'number3', label: 'One More Number' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "Grateful to announce our AI has {verb} a new {adjective} milestone in {noun}! It's now {number}x more {adjective2} than any solution on the market!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Just witnessed our AI {verb} {noun} with {number}% more {noun2} than ever before! This is truly a {adjective} moment for {noun3} everywhere!",
+      inputs: [
+        { id: 'verb', label: 'Verb (infinitive)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun3', label: 'One More Noun (plural)' }
+      ]
+    },
+    {
+      text: "Proud to share that our {adjective} AI has {verb} the {noun} industry by delivering {number}x more {noun2} in just {number2}% of the time!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Breakthrough alert! Our AI has {verb} the {adjective} limits of {noun}, achieving a mind-blowing {number}% improvement in {noun2}!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Excited to reveal our AI now {verb} {noun} with {number}x more {noun2} than the industry standard! This is truly a {adjective} revolution!",
+      inputs: [
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'adjective', label: 'Adjective' }
+      ]
+    },
+    {
+      text: "After {number} months of development, our {adjective} AI has {verb} all previous {noun} records! It's now {number2}% more {adjective2} than ever before!",
+      inputs: [
+        { id: 'number', label: 'Number' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Humbled by the response to our AI that has {verb} the {adjective} world of {noun}! Users report {number}x more {noun2} with {number2}% less effort!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' }
+      ]
+    },
+    {
+      text: "Just deployed our {adjective} AI that {verb} {noun} at {number}x the speed while delivering {number2}% more {noun2}! This changes everything!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Verb (present tense)' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'noun2', label: 'Another Noun' }
+      ]
+    },
+    {
+      text: "Thrilled to announce our AI has {verb} a new {adjective} approach to {noun}, making traditional methods look {number}x less {adjective2}!",
+      inputs: [
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
+    },
+    {
+      text: "Our {adjective} AI has officially {verb} the {noun} ceiling! It now delivers {number}x more {noun2} while being {number2}% more {adjective2}!",
+      inputs: [
+        { id: 'adjective', label: 'Adjective' },
+        { id: 'verb', label: 'Past Tense Verb' },
+        { id: 'noun', label: 'Noun' },
+        { id: 'number', label: 'Number' },
+        { id: 'noun2', label: 'Another Noun' },
+        { id: 'number2', label: 'Another Number' },
+        { id: 'adjective2', label: 'Another Adjective' }
+      ]
     }
   ];
 
