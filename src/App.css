@@ -1,11 +1,11 @@
-.app-container {
+.App {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
+.App-header {
   text-align: center;
   margin-bottom: 40px;
   border-bottom: 2px solid #0077b6;
