@@ -92,11 +92,39 @@ const MadlibPage = ({
     setCurrentInput(suggestion);
   };
 
-  // Handle random suggestion selection
-  const handleRandomSuggestion = () => {
+  // Handle random suggestion selection (just selects a suggestion)
+  const handleSuggest = () => {
     if (currentSuggestions.length > 0) {
       const randomIndex = Math.floor(Math.random() * currentSuggestions.length);
       setCurrentInput(currentSuggestions[randomIndex]);
+    }
+  };
+  
+  // Handle random suggestion and submit (selects and submits in one action)
+  const handleRandomSubmit = (e) => {
+    if (currentSuggestions.length > 0) {
+      // Prevent default form submission
+      e.preventDefault();
+      
+      // Select a random suggestion
+      const randomIndex = Math.floor(Math.random() * currentSuggestions.length);
+      const randomSuggestion = currentSuggestions[randomIndex];
+      
+      // Save the current input
+      const updatedInputs = {
+        ...userInputs,
+        [selectedTemplate.inputs[currentStep].id]: randomSuggestion
+      };
+      
+      setUserInputs(updatedInputs);
+      
+      // Move to the next step or complete
+      if (currentStep < selectedTemplate.inputs.length - 1) {
+        setCurrentStep(currentStep + 1);
+        setCurrentInput('');
+      } else {
+        setIsComplete(true);
+      }
     }
   };
 
@@ -208,17 +236,30 @@ const MadlibPage = ({
                     <div className="mt-4">
                       <div className="flex justify-between items-center mb-2">
                         <p className="font-semibold text-gray-800">Suggestions:</p>
-                        <button 
-                          type="button" 
-                          className="bg-accent hover:bg-accent-dark text-white px-3 py-1 rounded-md text-sm transition-colors flex items-center gap-1"
-                          onClick={handleRandomSuggestion}
-                          disabled={currentSuggestions.length === 0}
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                          </svg>
-                          Random
-                        </button>
+                        <div className="flex gap-2">
+                          <button 
+                            type="button" 
+                            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-3 py-1 rounded-md text-sm transition-colors flex items-center gap-1"
+                            onClick={handleSuggest}
+                            disabled={currentSuggestions.length === 0}
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            Suggest
+                          </button>
+                          <button 
+                            type="button" 
+                            className="bg-accent hover:bg-accent-dark text-white px-3 py-1 rounded-md text-sm transition-colors flex items-center gap-1"
+                            onClick={handleRandomSubmit}
+                            disabled={currentSuggestions.length === 0}
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Random
+                          </button>
+                        </div>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {currentSuggestions.map((suggestion, index) => (
