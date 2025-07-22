@@ -92,6 +92,14 @@ const MadlibPage = ({
     setCurrentInput(suggestion);
   };
 
+  // Handle random suggestion selection
+  const handleRandomSuggestion = () => {
+    if (currentSuggestions.length > 0) {
+      const randomIndex = Math.floor(Math.random() * currentSuggestions.length);
+      setCurrentInput(currentSuggestions[randomIndex]);
+    }
+  };
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -198,7 +206,20 @@ const MadlibPage = ({
                       required
                     />
                     <div className="mt-4">
-                      <p className="font-semibold text-gray-800 mb-2">Suggestions:</p>
+                      <div className="flex justify-between items-center mb-2">
+                        <p className="font-semibold text-gray-800">Suggestions:</p>
+                        <button 
+                          type="button" 
+                          className="bg-accent hover:bg-accent-dark text-white px-3 py-1 rounded-md text-sm transition-colors flex items-center gap-1"
+                          onClick={handleRandomSuggestion}
+                          disabled={currentSuggestions.length === 0}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          Random
+                        </button>
+                      </div>
                       <div className="flex flex-wrap gap-2">
                         {currentSuggestions.map((suggestion, index) => (
                           <button 
@@ -225,7 +246,7 @@ const MadlibPage = ({
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold mb-4">Your Madlib:</h2>
+            <h2 className="text-xl font-semibold mb-4">{selectedTemplate.name}</h2>
             {userInputs.image && supportsImageSelection && (
               <div className="mb-4 rounded-lg overflow-hidden border border-gray-200">
                 <img src={userInputs.image} alt="Post illustration" className="w-full h-auto" />

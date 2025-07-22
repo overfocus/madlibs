@@ -4,7 +4,7 @@
 
 const linkedinPostTemplate = {
   id: 'botson-linkedin-post',
-  name: 'LinkedIn Post',
+  name: 'Botson says:',
   text: `I {verb} a candidate's CV twice.
 
 He applied for a third time so I invited him in for an interview.

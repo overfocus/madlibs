@@ -4,7 +4,7 @@
 
 const networkingTemplate = {
   id: 'botson-networking',
-  name: 'Networking Event',
+  name: 'Botson Networking Event',
   text: `I was at a {event} last night.
 
 While everyone else was {activity}, I spotted the {person} across the room.
