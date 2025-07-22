@@ -2,89 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './App.css';
 
-// Word suggestion lists for different types of prompts
-const suggestions = {
-  noun: [
-    'productivity', 'efficiency', 'workflow', 'ROI', 'synergy', 'disruption', 'innovation', 'transformation', 
-    'paradigm', 'algorithm', 'pipeline', 'ecosystem', 'framework', 'solution', 'platform', 'interface',
-    'neural network', 'machine learning', 'data', 'analytics', 'insights', 'KPIs', 'metrics', 'benchmark',
-    'scalability', 'optimization', 'throughput', 'bandwidth', 'latency', 'bottleneck', 'overhead', 'cloud'
-  ],
-  adjective: [
-    'groundbreaking', 'revolutionary', 'disruptive', 'innovative', 'cutting-edge', 'state-of-the-art', 
-    'next-generation', 'game-changing', 'transformative', 'paradigm-shifting', 'bleeding-edge', 'future-proof',
-    'seamless', 'frictionless', 'intuitive', 'robust', 'scalable', 'enterprise-grade', 'mission-critical',
-    'hyper-efficient', 'ultra-optimized', 'quantum-level', 'unprecedented', 'unparalleled', 'extraordinary'
-  ],
-  verb: [
-    'revolutionized', 'disrupted', 'transformed', 'optimized', 'streamlined', 'accelerated', 'amplified', 
-    'leveraged', 'engineered', 'architected', 'pioneered', 'spearheaded', 'orchestrated', 'implemented',
-    'deployed', 'scaled', 'iterated', 'innovated', 'enhanced', 'elevated', 'maximized', 'unlocked',
-    'unleashed', 'catalyzed', 'empowered', 'enabled', 'expedited', 'facilitated', 'generated', 'harnessed'
-  ],
-  number: [
-    '10', '42', '100', '250', '500', '1000', '10000', '1000000', '1000000000', '99.9', '150', '200', '300',
-    '3', '5', '7', '12', '15', '20', '25', '30', '50', '75', '90', '99', '110', '125', '200', '400', '750'
-  ]
-};
+// Import templates and utilities
+import aiHypeTemplates from './templates/ai-hype';
+import { generateSuggestionsForTemplate, getSuggestionType } from './utils/suggestionHelper';
+import suggestions from './utils/suggestions';
 
-// Collection of AI hype templates
-const templates = [
-  {
-    text: "Our AI reduces {noun} by exactly {number}%, increases {noun2} by {number2}x, and eliminates the need for {noun3} entirely.",
-    inputs: [
-      { id: 'noun', label: 'Noun' },
-      { id: 'number', label: 'Number' },
-      { id: 'noun2', label: 'Another Noun' },
-      { id: 'number2', label: 'Another Number' },
-      { id: 'noun3', label: 'One More Noun' }
-    ]
-  },
-  {
-    text: "I'm thrilled to announce our new {adjective} AI platform that has {verb} the industry by storm! We've seen {number}x improvement in {noun} and our clients can't stop {verb2} about the results.",
-    inputs: [
-      { id: 'adjective', label: 'Adjective' },
-      { id: 'verb', label: 'Past Tense Verb' },
-      { id: 'number', label: 'Number' },
-      { id: 'noun', label: 'Noun' },
-      { id: 'verb2', label: 'Present Tense Verb ending in -ing' }
-    ]
-  },
-  {
-    text: "Just had a {adjective} conversation with our AI about the future of {noun}. It predicted a {number}% increase in {noun2} by next quarter. The {adjective2} possibilities are endless!",
-    inputs: [
-      { id: 'adjective', label: 'Adjective' },
-      { id: 'noun', label: 'Noun' },
-      { id: 'number', label: 'Number' },
-      { id: 'noun2', label: 'Another Noun' },
-      { id: 'adjective2', label: 'Another Adjective' }
-    ]
-  },
-  {
-    text: "Breaking: Our {adjective} AI just {verb} all previous benchmarks by {number}x! This is a {adjective2} breakthrough for {noun} as we know it.",
-    inputs: [
-      { id: 'adjective', label: 'Adjective' },
-      { id: 'verb', label: 'Past Tense Verb' },
-      { id: 'number', label: 'Number' },
-      { id: 'adjective2', label: 'Another Adjective' },
-      { id: 'noun', label: 'Noun' }
-    ]
-  },
-  {
-    text: "I'm {adjective} to share that our AI has achieved {number}% accuracy in {noun} prediction, making {noun2} obsolete in just {number2} months!",
-    inputs: [
-      { id: 'adjective', label: 'Adjective (e.g., excited, proud)' },
-      { id: 'number', label: 'Number' },
-      { id: 'noun', label: 'Noun' },
-      { id: 'noun2', label: 'Another Noun' },
-      { id: 'number2', label: 'Another Number' }
-    ]
-  }
-];
-
-const App = () => {
+function App() {
   // Initialize with a random template first
-  const initialTemplate = templates[Math.floor(Math.random() * templates.length)];
+  const initialTemplate = aiHypeTemplates[Math.floor(Math.random() * aiHypeTemplates.length)];
   
   // State to track the current step in the madlib process
   const [currentStep, setCurrentStep] = useState(0);
@@ -103,27 +28,7 @@ const App = () => {
   
   // Generate and store all suggestions for each step at initialization
   const [allSuggestions, setAllSuggestions] = useState(() => {
-    const suggestionsByStep = {};
-    initialTemplate.inputs.forEach((input, index) => {
-      let suggestionType = 'noun';
-      const currentLabel = input.label.toLowerCase();
-      
-      if (currentLabel.includes('adjective')) {
-        suggestionType = 'adjective';
-      } else if (currentLabel.includes('verb')) {
-        suggestionType = 'verb';
-      } else if (currentLabel.includes('number')) {
-        suggestionType = 'number';
-      } else if (currentLabel.includes('noun')) {
-        suggestionType = 'noun';
-      }
-      
-      const suggestionList = suggestions[suggestionType] || suggestions.noun;
-      suggestionsByStep[index] = [...suggestionList]
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3);
-    });
-    return suggestionsByStep;
+    return generateSuggestionsForTemplate(initialTemplate, 3);
   });
 
   // Function to get suggestions for the current step
@@ -195,7 +100,7 @@ const App = () => {
 
   // Reset the game
   const resetGame = () => {
-    const newTemplate = templates[Math.floor(Math.random() * templates.length)];
+    const newTemplate = aiHypeTemplates[Math.floor(Math.random() * aiHypeTemplates.length)];
     setSelectedTemplate(newTemplate);
     setCurrentStep(0);
     setUserInputs({});
@@ -204,28 +109,7 @@ const App = () => {
     setCopySuccess(false);
     
     // Create new suggestions for the new template
-    const suggestionsByStep = {};
-    newTemplate.inputs.forEach((input, index) => {
-      let suggestionType = 'noun';
-      const currentLabel = input.label.toLowerCase();
-      
-      if (currentLabel.includes('adjective')) {
-        suggestionType = 'adjective';
-      } else if (currentLabel.includes('verb')) {
-        suggestionType = 'verb';
-      } else if (currentLabel.includes('number')) {
-        suggestionType = 'number';
-      } else if (currentLabel.includes('noun')) {
-        suggestionType = 'noun';
-      }
-      
-      const suggestionList = suggestions[suggestionType] || suggestions.noun;
-      suggestionsByStep[index] = [...suggestionList]
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3);
-    });
-    
-    setAllSuggestions(suggestionsByStep);
+    setAllSuggestions(generateSuggestionsForTemplate(newTemplate, 3));
   };
 
   return (
@@ -286,6 +170,6 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
 export default App;
