@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 // Import generic MadlibPage component
 import MadlibPage from './components/MadlibPage';
@@ -14,16 +13,11 @@ function App() {
   // Custom footer for AI Hype page
   const AiHypeFooter = () => (
     <>
-      <p>© {new Date().getFullYear()} AI Hype Madlibs</p>
-      <p>Created by overfocus - <a href="https://github.com/overfocus/madlibs">source code @ github.com/overfocus/madlibs</a></p>
-      <p>Visit <a href="https://kevinferron.com">kevinferron.com</a></p>
+      <p className="mb-2">© {new Date().getFullYear()} AI Hype Madlibs</p>
+      <p className="mb-2">Created by overfocus - <a href="https://github.com/overfocus/madlibs" className="text-blue-600 hover:text-blue-800 underline">source code @ github.com/overfocus/madlibs</a></p>
+      <p>Visit <a href="https://kevinferron.com" className="text-blue-600 hover:text-blue-800 underline">kevinferron.com</a></p>
     </>
   );
-
-  // Custom styles for AI Hype page
-  const aiHypeStyles = {
-    backgroundColor: '#f0f8ff',  // Light blue background
-  };
 
   return (
     <MadlibPage
@@ -31,7 +25,7 @@ function App() {
       title="AI Hype Madlibs"
       backLink="/"
       backLinkText="Back to Home"
-      customStyles={aiHypeStyles}
+      customStyles={{ backgroundColor: '#f0f8ff' }}
       footer={<AiHypeFooter />}
       supportsImageSelection={false}
     />
